@@ -29,7 +29,7 @@ export const SearchBar = () => {
       if (location.pathname !== "/products") {
         navigate("/products");
       }
-    }, 300); // 300ms debounce delay
+    }, 300);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,27 +48,26 @@ export const SearchBar = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // Prevent form submission as we're handling live search
   };
 
   return (
     <form onSubmit={handleSearch} className="relative w-full">
-      <div className="relative group">
-        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 transition-all duration-300 group-focus-within:text-black pointer-events-none" />
+      <div className="relative">
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
 
         <input
           type="text"
-          placeholder="Search plants, décor, furniture..."
+          placeholder="Search pet food, toys, accessories..."
           value={query}
           onChange={handleInputChange}
-          className="w-full pl-12 pr-12 py-4 border border-gray-200 rounded-none bg-white text-sm font-light tracking-wide placeholder:text-gray-400 placeholder:font-light focus:outline-none focus:border-black focus:ring-0 transition-all duration-300 hover:border-gray-300"
+          className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg bg-white text-sm placeholder:text-gray-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-colors"
         />
 
         {query && (
           <button
             type="button"
             onClick={clearSearch}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-black transition-all duration-300 p-1 hover:bg-gray-50 rounded-full"
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
             aria-label="Clear search"
           >
             <X className="w-4 h-4" />
