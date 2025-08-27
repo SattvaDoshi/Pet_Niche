@@ -1,0 +1,1 @@
+export { ProfileOverview as ProfilePage } from "@/components/Profile/ProfileOverview";
